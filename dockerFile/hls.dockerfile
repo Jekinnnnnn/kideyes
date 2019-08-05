@@ -1,5 +1,5 @@
 FROM alpine:latest as Nginx
-MAINTAINER Jekinnnnnnn
+MAINTAINER Jekinnnnnn
 
 ARG NGINX_VERSION=1.15.3
 
@@ -49,6 +49,7 @@ RUN	cd /tmp \
 	&& make install \
 	&& rm /opt/nginx/conf/nginx.conf \
 	&& rm ../nginx-${NGINX_VERSION}.tar.gz \
+	&& rm -rf ../nginx-rtmp-module \
 	&& rm -rf ../nginx-${NGINX_VERSION}
 
 # copy config file
