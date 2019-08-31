@@ -1,8 +1,10 @@
 ### What is kideyes
-Identify diffierent frame which is in a live stream in a confidence interval base on sample stream.Kideyes is mainly composed of three parts.
+Identify diffierent frame which is in a live stream in a confidence interval base on sample stream.Kideyes is mainly composed of four parts.
 1. Using docker builds a streaming server
 2. Streaming by HLS
-3. Image Processing through ts files
+3. Processing ts files by FFmpeg(version 3.4.6) for extracting frame
+4. Using OpenCV identifying images
+
 ### Usege
 - init hls server
     - download hls.dockerfile and hls.conf in a new folder
@@ -13,6 +15,10 @@ Identify diffierent frame which is in a live stream in a confidence interval bas
 - Streaming(OBS Config)
     - streaming server: rtmp://host:port/${nginx_rtmp_application_name}
     - streaming key: ${key_use_for_pulling_stream}
+
+### Q&A
+1.Why not use high version FFmpeg?
+Since version 4.0, FFmpeg dropped support for building for Windows XP
 
 ### Attention
 You may get warning message as shown below, if you build image in windows docker.
